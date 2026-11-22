@@ -305,7 +305,10 @@ const REGIONS = [
 const RMAP = Object.fromEntries(REGIONS.map(r=>[r.k,r]));
 
 const RACES = [
-  {n:'인간', c:'#d9b46a', w:'마법왕국 · 기사왕국 · 신성국 · 모험가 도시', d:'네 개의 나라와 도시로 나뉘어 대륙 서쪽과 중앙에 산다. 마법, 검, 신성력, 모험 각자의 길을 걷는다.'},
+  {n:'마법왕국', g:1, c:'#8fb4ff', w:'인간 · 마법왕국', d:'하늘에 떠 있는 마탑들의 왕국. 같은 롱코트를 입은 마법사들이 연구와 수련을 한다.'},
+  {n:'기사왕국', g:1, c:'#c9d3e6', w:'인간 · 기사왕국', d:'원형 성채를 중심으로 한 기사들의 나라. 기사단이 대륙의 서쪽 땅을 지킨다.'},
+  {n:'모험가', g:1, c:'#f0c98a', w:'인간 · 모험가 도시', d:'붉은 지붕이 모인 성벽 도시. 모험가 길드가 있어 각지의 의뢰와 사람이 모여든다.'},
+  {n:'신성국', g:1, c:'#f4e7b0', w:'인간 · 신성국', d:'대륙 한가운데 호수 섬에 세워진 성도. 성녀와 사제들이 머무는 하얀 대성당이 있다.'},
   {n:'용족', c:'#ff7a5c', w:'화룡 화산 · 빙룡 설원 · 풍룡 하늘섬 · 흑룡 암벽 · 용왕의 영봉', d:'속성마다 다른 땅에 흩어져 사는 용들. 그 위에 용왕이 군림한다.'},
   {n:'드워프', c:'#d6b99a', w:'드워프 왕국', d:'설산의 산악 요새에 사는 장인 종족. 단조와 기계, 보석 세공에 능하다.'},
   {n:'엘프', c:'#9fe08f', w:'엘프의 숲', d:'대륙 서쪽 깊은 숲과 세계수의 주인. 자연과 정령, 꿈의 마법을 다룬다.'},
@@ -316,11 +319,12 @@ const RACES = [
 ];
 
 const $ = s=>document.querySelector(s);
+const grp = p=>p.race==='인간'?p.aff:p.race;
 const img = (p,c)=>`img/${p.id}_${c}.webp`;
 
 /* races */
 $('#races').innerHTML = RACES.map(r=>{
-  const n = PEOPLE.filter(p=>p.race===r.n).length;
+  const n = PEOPLE.filter(p=>grp(p)===r.n).length;
   return `<div class="race" style="--c:${r.c}"><span class="n">${n}명</span><h3>${r.n}</h3><div class="where">${r.w}</div><p>${r.d}</p></div>`;
 }).join('');
 
@@ -363,7 +367,7 @@ let cur='전체';
 $('#chips').innerHTML = CH.map(c=>`<button class="chip${c===cur?' on':''}" data-c="${c}">${c}</button>`).join('');
 $('#chips').querySelectorAll('.chip').forEach(b=>b.onclick=()=>{cur=b.dataset.c;$('#chips').querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===b));draw();});
 function draw(){
-  const ps = PEOPLE.filter(p=>cur==='전체'||p.race===cur);
+  const ps = PEOPLE.filter(p=>cur==='전체'||grp(p)===cur);
   $('#grid').innerHTML = ps.map(p=>{
     const r=RMAP[p.reg];
     return `<button class="card" data-id="${p.id}" style="--c:${r.c}">
