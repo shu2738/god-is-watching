@@ -3,205 +3,168 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>신이 보고 있다 (팝콘 들고) · 세계 기록</title>
-<meta name="description" content="여덟 종족이 사는 대륙과 그 위의 사람들. 신이 보고 있다 (팝콘 들고) 세계 기록.">
+<title>신이 보고 있다 (팝콘 들고) · 관람 기록</title>
+<meta name="description" content="신이 팝콘 들고 구경하는 대륙의 관람 기록. 여덟 종족, 서른아홉 명의 출연진.">
 <meta property="og:title" content="신이 보고 있다 (팝콘 들고)">
 <meta property="og:image" content="https://shu2738.github.io/god-is-watching/img/cover.webp">
-<link rel="icon" href="img/logo_hd.webp">
+<link rel="icon" href="img/logo_v3.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;900&family=Jua&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#080b14; --bg2:#0e1322; --card:#121829; --line:#232b42;
-  --ink:#ece6d6; --mute:#9aa0b4; --gold:#d9b46a; --gold2:#f3dca4; --red:#e0574f;
-  --S:#f2c14e; --A:#e0574f; --B:#6ea8ff; --C:#7fd1a4; --D:#a7a9b8;
+  --bg:#fbf6ec; --bg2:#f4ecdc; --card:#fffdf8; --line:#eadfc8;
+  --ink:#3b2b1c; --mute:#8a7a64; --gold:#c99a3c; --gold2:#e8c77a; --red:#d8414a; --sky:#cfe3f6;
+  --S:#e0a92b; --A:#d8414a; --B:#4f86d9; --C:#3fae7a; --D:#9a93a6;
+  --corn:repeating-linear-gradient(90deg,#d8414a 0 18px,#fff 18px 36px);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:"Noto Sans KR",system-ui,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
-img{display:block;max-width:100%}
+body{background:var(--bg);color:var(--ink);font:15px/1.7 "Noto Sans KR",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-a{color:inherit}
+a{color:inherit;text-decoration:none}
+.fun{font-family:"Jua","Noto Sans KR",sans-serif;font-weight:400}
 
 /* header */
-header{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px clamp(16px,4vw,48px);background:linear-gradient(#080b14ee,#080b1400);transition:background .3s}
-header.solid{background:#080b14f2;border-bottom:1px solid var(--line)}
-.brand{font-family:"Noto Serif KR",serif;font-weight:900;letter-spacing:.04em;font-size:17px;white-space:nowrap}
-.brand small{font-family:"Noto Sans KR";font-weight:500;color:var(--gold);font-size:12px;margin-left:6px}
-nav{display:flex;gap:clamp(12px,2.4vw,28px);font-size:14px;color:var(--mute)}
-nav a{text-decoration:none;padding:4px 0;border-bottom:1px solid transparent}
-nav a:hover,nav a.on{color:var(--ink);border-color:var(--gold)}
+#hdr{position:fixed;inset:0 0 auto;z-index:50;display:flex;align-items:center;gap:34px;padding:12px clamp(16px,4vw,48px);transition:.3s}
+#hdr.solid{background:rgba(251,246,236,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+.brand img{height:46px;width:auto;filter:drop-shadow(0 1px 1px rgba(80,50,20,.55)) drop-shadow(0 2px 6px rgba(80,50,20,.25))}
+nav{display:flex;gap:clamp(12px,2.2vw,26px);font-size:14px;font-weight:700;color:var(--ink)}
+nav a{padding:4px 2px;border-bottom:2px solid transparent;transition:.2s}
+nav a:hover,nav a.on{color:var(--red);border-color:var(--red)}
+@media(max-width:820px){#hdr{gap:14px;padding:8px 14px}.brand img{height:34px}nav{gap:12px;font-size:13px;overflow-x:auto;white-space:nowrap}}
 
 /* hero */
-.hero{position:relative;min-height:100vh;display:grid;place-items:center;text-align:center;overflow:hidden}
-.hero .bg{position:absolute;inset:0;background:url(img/map.webp) center/cover;transform:scale(1.06);filter:saturate(.9) brightness(.55);animation:drift 30s ease-in-out infinite alternate}
-@keyframes drift{to{transform:scale(1.14) translate(-1.5%,1%)}}
-.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,#080b1430 0%,#080b14cc 70%,#080b14 100%)}
-.hero .in{position:relative;z-index:2;padding:0 20px}
-.eyebrow{color:var(--gold);letter-spacing:.35em;font-size:12px;text-transform:uppercase}
-.hero h1{font-family:"Noto Serif KR",serif;font-weight:900;font-size:clamp(44px,9vw,108px);line-height:1.1;margin:18px 0 6px;background:linear-gradient(180deg,#fff6dc,#d9b46a 70%,#9c7a3a);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 40px #d9b46a22}
-.hero .sub{font-family:"Noto Serif KR",serif;font-size:clamp(18px,2.6vw,26px);color:var(--gold2);letter-spacing:.1em}
-.hero p.lead{margin:26px auto 34px;max-width:560px;color:#d5d0c2;font-size:15px}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;background:linear-gradient(180deg,#bcd8f2 0%,#dcebf8 45%,#f4f0ea 85%,var(--bg) 100%)}
+.hero .god{position:absolute;right:0;top:0;height:100%;aspect-ratio:832/1216;z-index:1;animation:float 6s ease-in-out infinite}
+.hero .god img{width:100%;height:100%;object-fit:cover;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 26%),linear-gradient(to bottom,#000 78%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0,#000 26%),linear-gradient(to bottom,#000 78%,transparent 100%);mask-composite:intersect}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.hero .in{position:relative;z-index:2;margin-left:clamp(20px,7vw,120px);max-width:min(620px,50vw);text-align:center;padding-top:60px}
+.hero .ticket{display:inline-block;font-size:12px;letter-spacing:.18em;font-weight:700;color:var(--red);background:#fff;border:2px dashed var(--red);padding:4px 14px;border-radius:6px;transform:rotate(-2deg)}
+.hero h1.logo{margin:14px 0 4px;line-height:0}
+.hero h1.logo img{width:100%;height:auto;filter:drop-shadow(0 2px 2px rgba(90,55,20,.45)) drop-shadow(0 6px 18px rgba(90,55,20,.25))}
+.hero .lead{font-size:16px;color:#4a3826;margin:6px auto 4px}
+.hero .joke{font-size:17px;color:var(--red);margin:6px 0 26px}
 .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn{display:inline-block;padding:11px 26px;border:1px solid var(--gold);border-radius:999px;color:var(--gold2);text-decoration:none;font-size:14px;letter-spacing:.08em;transition:.2s}
-.btn:hover{background:var(--gold);color:#1a1408}
-.btn.fill{background:var(--gold);color:#1a1408}
-.btn.fill:hover{background:var(--gold2)}
-
-/* sections */
-section{padding:110px clamp(16px,5vw,64px) 40px;max-width:1240px;margin:0 auto}
-.sh{text-align:center;margin-bottom:44px}
-.sh .eyebrow{display:block;margin-bottom:10px}
-.sh h2{font-family:"Noto Serif KR",serif;font-weight:900;font-size:clamp(28px,4vw,40px);letter-spacing:.06em}
-.sh p{color:var(--mute);margin-top:10px;font-size:15px}
-
-/* races */
-.races{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
-.race{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 20px 18px;position:relative;overflow:hidden}
-.race::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--c,var(--gold))}
-.race h3{font-size:17px;margin-bottom:4px}
-.race .where{font-size:12.5px;color:var(--gold);margin-bottom:8px}
-.race p{font-size:14px;color:#c6c3ba}
-.race .n{position:absolute;right:16px;top:16px;font-size:12px;color:var(--mute)}
-
-/* map */
-.mapwrap{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:20px;align-items:start}
-.map{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px #0008}
-.map img{width:100%;height:auto}
-.pin{position:absolute;transform:translate(-50%,-100%);display:flex;flex-direction:column;align-items:center;gap:3px;z-index:2}
-.pin .lb{padding:3px 10px;border-radius:999px;background:#0b0f1ccc;border:1px solid var(--c);color:#fff;font-size:12px;font-weight:700;white-space:nowrap;backdrop-filter:blur(4px);transition:.2s}
-.pin .dot{width:11px;height:11px;border-radius:50%;background:var(--c);box-shadow:0 0 0 3px #0008,0 0 14px var(--c)}
-.pin:hover .lb,.pin.on .lb{background:var(--c);color:#111}
-.pin.on .dot{animation:pulse 1.4s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 3px #0008,0 0 0 0 var(--c)}100%{box-shadow:0 0 0 3px #0008,0 0 0 16px transparent}}
-.side{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;position:sticky;top:84px;max-height:calc(100vh - 110px);overflow:auto}
-.side .rimg{width:100%;aspect-ratio:1216/832;object-fit:cover;border-radius:10px;margin-bottom:14px;cursor:zoom-in;border:1px solid var(--line)}
-.side .tag{display:inline-block;font-size:12px;padding:2px 10px;border-radius:999px;border:1px solid var(--c);color:var(--c);margin-bottom:10px}
-.side h3{font-family:"Noto Serif KR",serif;font-size:24px;margin-bottom:8px}
-.side p{font-size:14px;color:#c6c3ba;margin-bottom:16px}
-.side h4{font-size:12px;color:var(--mute);letter-spacing:.2em;margin:4px 0 10px}
-.who{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.who button{display:flex;flex-direction:column;border-radius:10px;overflow:hidden;background:#0b0f1c;border:1px solid var(--line);text-align:left;transition:.2s}
-.who button:hover{border-color:var(--gold)}
-.who img{aspect-ratio:16/11;object-fit:cover;width:100%}
-.who span{font-size:13px;padding:6px 8px 7px;font-weight:700}
-.who small{display:block;font-weight:400;color:var(--mute);font-size:11px}
-.empty{font-size:13px;color:var(--mute)}
-.legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
-.legend button{font-size:12px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--mute)}
-.legend button:hover{border-color:var(--c);color:var(--ink)}
-
-/* places */
-$('#pgrid').innerHTML = REGIONS.map(r=>`<button class="place" style="--c:${r.c}" data-k="${r.k}"><img src="img/r_${r.k}.webp" alt="${r.n}" loading="lazy"><span><small>${r.race}</small>${r.n}</span></button>`).join('');
-$('#pgrid').querySelectorAll('.place').forEach(b=>b.onclick=()=>openPlace(b.dataset.k));
-const pdlg=$('#pdlg');
-function openPlace(k){const r=RMAP[k];$('#pimg').src=`img/r_${k}.webp`;$('#pimg').alt=r.n;$('#pname').textContent=r.n;$('#pdesc').textContent=r.d;$('#pmap').onclick=()=>{pdlg.close();pick(k);$('#map').scrollIntoView();};pdlg.showModal();}
-window.openPlace=openPlace;
-$('#pdlgx').onclick=()=>pdlg.close();
-pdlg.addEventListener('click',e=>{if(e.target===pdlg)pdlg.close();});
-
-/* people */
-.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:28px}
-.chip{padding:7px 16px;border-radius:999px;border:1px solid var(--line);font-size:13.5px;color:var(--mute);transition:.2s}
-.chip:hover{color:var(--ink);border-color:#3b4566}
-.chip.on{background:var(--ink);color:#111;border-color:var(--ink);font-weight:700}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-align:left;transition:transform .25s,border-color .25s;display:flex;flex-direction:column}
-.card:hover{transform:translateY(-4px);border-color:var(--gold)}
-.card .ph{position:relative;aspect-ratio:16/11;overflow:hidden;background:#0b0f1c}
-.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.card:hover .ph img{transform:scale(1.05)}
-.card .bar{height:3px;background:var(--c)}
-.card .tx{padding:13px 15px 15px}
-.card h3{font-size:17px;display:flex;align-items:center;gap:8px}
-.card .meta{font-size:12.5px;color:var(--mute);margin-top:2px}
-.card .at{font-size:12.5px;color:var(--gold);margin-top:6px}
-.gr{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:6px;font-size:12px;font-weight:900;color:#111;background:var(--g)}
-.count{text-align:center;color:var(--mute);font-size:13px;margin-top:18px}
-
-/* places */
-.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
-.place{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);aspect-ratio:1216/832;text-align:left}
-.place img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.place:hover img{transform:scale(1.05)}
-.place span{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 10px;background:linear-gradient(#0000,#000c);font-weight:700;font-size:15px}
-.place span small{display:block;font-weight:400;font-size:12px;color:var(--c)}
-#pdlg .pd{padding:18px 26px 26px}
-#pdlg h3{font-family:"Noto Serif KR",serif;font-size:26px}
-#pdlg p{color:#d0ccc0;margin-top:8px}
-#pdlg .btn{margin-top:14px}
-/* webtoon */
-.soon{border:1px dashed #3b4566;border-radius:16px;padding:56px 20px;text-align:center;color:var(--mute)}
-.soon b{display:block;font-family:"Noto Serif KR",serif;color:var(--ink);font-size:20px;margin-bottom:6px}
-
-footer{text-align:center;color:#5e6580;font-size:12px;padding:70px 20px 50px}
-
-/* modal */
-dialog{margin:auto;border:0;padding:0;background:var(--bg2);color:var(--ink);border-radius:18px;width:min(960px,94vw);max-height:92vh;overflow:auto;box-shadow:0 40px 120px #000c}
-dialog::backdrop{background:#03050bd9;backdrop-filter:blur(4px)}
-.dlg-x{position:absolute;top:12px;right:12px;width:38px;height:38px;border-radius:50%;background:#000a;border:1px solid var(--line);font-size:20px;z-index:3}
-.dlg-x:hover{border-color:var(--gold)}
-.dlg-img{background:#000;aspect-ratio:1216/832;width:100%}
-.dlg-img img{width:100%;height:100%;object-fit:contain}
-.faces{display:flex;gap:8px;padding:14px 22px 0;overflow-x:auto}
-.faces button{flex:0 0 auto;width:92px;border-radius:10px;overflow:hidden;border:2px solid transparent;background:#0b0f1c;opacity:.65;transition:.2s}
-.faces button.on,.faces button:hover{opacity:1;border-color:var(--gold)}
-.faces img{aspect-ratio:16/11;object-fit:cover;width:100%}
-.faces span{display:block;font-size:12px;padding:3px 0 4px;text-align:center}
-.dlg-body{padding:18px 26px 28px}
-.dlg-body h3{font-family:"Noto Serif KR",serif;font-size:30px;display:flex;align-items:center;gap:12px}
-.dlg-body .sub{color:var(--gold);font-size:14px;margin-top:2px}
-.dlg-body p{margin-top:12px;color:#d0ccc0}
-.dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:18px}
-.dl div{background:#0b0f1c;border:1px solid var(--line);border-radius:10px;padding:10px 14px}
-.dl dt{font-size:11.5px;color:var(--mute);letter-spacing:.1em}
-.dl dd{font-weight:700;margin-top:2px}
-.dl a{color:var(--gold2);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
-
-@media (max-width:900px){
-  .mapwrap{grid-template-columns:1fr}
-  .side{position:static;max-height:none}
-  nav{display:none}
-  .pin .lb{font-size:10px;padding:2px 7px}
-  .pin .dot{width:8px;height:8px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;border-radius:999px;font-weight:700;border:2px solid var(--ink);background:#fff;transition:.2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--ink)}
+.btn.fill{background:var(--red);border-color:var(--red);color:#fff}
+.btn.fill:hover{box-shadow:0 6px 0 #9e2730}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:14px;background:var(--corn);z-index:3}
+@media(max-width:820px){
+  .hero{align-items:flex-end;min-height:100svh}
+  .hero .god{left:50%;right:auto;transform:translateX(-50%);height:78%;animation:none}
+  .hero .god img{-webkit-mask-image:linear-gradient(to bottom,#000 70%,transparent 100%);mask-image:linear-gradient(to bottom,#000 70%,transparent 100%)}
+  .hero .in{margin:0 auto;max-width:none;width:100%;padding:0 18px 46px;background:linear-gradient(transparent,rgba(251,246,236,.92) 30%)}
+  .hero .lead{font-size:14px}.hero .joke{font-size:15px}
 }
 
-.brand img{height:42px;width:auto;display:block;filter:drop-shadow(0 2px 6px rgba(0,0,0,.55))}
-.hero h1.logo{background:none;color:inherit;text-shadow:none;margin:8px 0 0;line-height:0}
-.hero h1.logo img{width:min(780px,90vw);height:auto;filter:drop-shadow(0 8px 28px rgba(0,0,0,.6))}
+/* sections */
+section{padding:96px clamp(16px,5vw,64px);max-width:1280px;margin:0 auto}
+.sh{text-align:center;margin-bottom:40px}
+.sh .eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
+.sh h2{font-family:"Noto Serif KR",serif;font-weight:900;font-size:clamp(28px,4vw,42px);margin:4px 0 8px}
+.sh p{color:var(--mute)}
+.sh .fun{color:var(--red);font-size:17px}
+.divider{height:10px;background:var(--corn);opacity:.85}
 
-/* hero: watching goddess */
-.hero{place-items:center start}
-.hero .in{margin-left:7vw;max-width:min(640px,50vw)}
-.hero h1.logo img{width:min(640px,46vw)}
-.hero .god{position:absolute;right:0;top:0;height:100%;aspect-ratio:832/1216;z-index:1;pointer-events:none;
-  animation:float 6s ease-in-out infinite}
-.hero .god img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.92);-webkit-mask-image:linear-gradient(to right,transparent 0,#000 30%),linear-gradient(to bottom,#000 70%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0,#000 30%),linear-gradient(to bottom,#000 70%,transparent 100%);mask-composite:intersect;}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.hero .bubble{position:absolute;left:-4%;top:20%;background:#fffdf6;color:#3a2a18;font:800 clamp(13px,1.4vw,18px)/1.3 "Noto Sans KR",sans-serif;padding:10px 16px;border-radius:18px;border:2px solid #d9b46a;box-shadow:0 6px 18px rgba(0,0,0,.35);white-space:nowrap;transform:rotate(-4deg);animation:wob 2.4s ease-in-out infinite}
-.hero .bubble::after{content:"";position:absolute;right:-12px;top:50%;border:9px solid transparent;border-left:13px solid #d9b46a;transform:translateY(-50%)}
-@keyframes wob{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(-1deg) scale(1.04)}}
-.hero .vip{position:absolute;left:24%;top:72%;background:#c8323a;color:#fff;font:900 clamp(11px,1vw,14px)/1 "Noto Sans KR",sans-serif;padding:6px 10px;border-radius:6px;transform:rotate(8deg);box-shadow:0 3px 10px rgba(0,0,0,.4);letter-spacing:.05em}
-.hero .joke{margin:-18px auto 30px;color:#b9a477;font-size:13px;opacity:.9}
-.hero .corn{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
-.hero .corn span{position:absolute;top:-20px;font-size:18px;animation:fall linear forwards;opacity:.9}
-@keyframes fall{to{transform:translate(var(--dx),110vh) rotate(var(--r));opacity:.2}}
-@media (max-width:820px){.hero{place-items:center}.hero .in{margin:0 auto;max-width:none}.hero h1.logo img{width:min(560px,88vw)}.hero .god{right:-25%;opacity:.45}.hero .bubble,.hero .vip{display:none}}
-#hdr nav a{text-shadow:0 1px 4px rgba(0,0,0,.9),0 0 12px rgba(0,0,0,.6)}
-.hero .god::before{content:"";position:absolute;left:0;right:0;top:0;height:90px;background:linear-gradient(rgba(8,11,20,.55),transparent);z-index:1}
+/* races */
+.races{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.race{position:relative;background:var(--card);border:2px solid var(--line);border-radius:18px;padding:20px 20px 18px;transition:.2s}
+.race:hover{transform:translateY(-3px) rotate(-.4deg);border-color:var(--c)}
+.race::before{content:"";position:absolute;left:18px;top:0;width:44px;height:6px;border-radius:0 0 6px 6px;background:var(--c)}
+.race .n{position:absolute;right:16px;top:16px;font-size:12px;font-weight:700;background:var(--bg2);padding:2px 10px;border-radius:999px}
+.race h3{font-family:"Noto Serif KR",serif;font-size:21px;margin-top:6px}
+.race .where{font-size:12px;color:var(--gold);font-weight:700;margin:2px 0 8px}
+.race p{font-size:14px;color:#5a4a36}
 
-#hdr{justify-content:flex-start !important;gap:40px}
-#hdr nav{margin-left:0 !important;margin-right:auto}
-.hero .bubble{left:auto;right:84%;top:29%;white-space:nowrap;transform-origin:right center;transform:none;animation:pop .7s cubic-bezier(.2,1.4,.4,1) .9s both;background:rgba(255,255,255,.97);color:#3b2b1c;border:none;border-radius:24px;padding:12px 20px;font:700 clamp(14px,1.35vw,19px)/1.35 "Noto Sans KR",sans-serif;letter-spacing:-.01em;box-shadow:0 10px 28px rgba(0,0,0,.28)}
-.hero .bubble::after{right:-11px;top:60%;border:10px solid transparent;border-left:15px solid rgba(255,255,255,.97);border-right:0;transform:translateY(-50%)}
-@keyframes pop{from{opacity:0;transform:scale(.6) translateY(8px)}to{opacity:1;transform:none}}
+/* map */
+.mapwrap{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:18px;align-items:start}
+.map{position:relative;border-radius:18px;overflow:hidden;border:3px solid #fff;box-shadow:0 10px 30px rgba(80,60,30,.18)}
+.pin{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:3px}
+.pin .dot{width:14px;height:14px;border-radius:50%;background:var(--c);border:3px solid #fff;box-shadow:0 0 0 2px rgba(0,0,0,.25)}
+.pin .lb{font-size:12px;font-weight:700;background:rgba(255,253,248,.92);padding:2px 8px;border-radius:999px;white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.pin.on .lb{background:var(--red);color:#fff}
+.pin.on .dot{transform:scale(1.3)}
+.side{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:16px;position:sticky;top:80px}
+.side .rimg{border-radius:12px;cursor:zoom-in;aspect-ratio:16/10;object-fit:cover;width:100%}
+.side .tag{display:inline-block;margin-top:12px;font-size:12px;font-weight:700;color:#fff;background:var(--c);padding:1px 10px;border-radius:999px;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+.side h3{font-family:"Noto Serif KR",serif;font-size:22px;margin:4px 0}
+.side p{font-size:14px;color:#5a4a36}
+.side h4{margin:14px 0 8px;font-size:13px;color:var(--mute)}
+.who{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.who button{display:flex;align-items:center;gap:8px;text-align:left;background:var(--bg2);border-radius:10px;padding:6px}
+.who img{width:38px;height:38px;border-radius:8px;object-fit:cover}
+.who span{font-size:13px;font-weight:700;line-height:1.2}.who small{display:block;font-weight:400;color:var(--mute);font-size:11px}
+.empty{font-size:13px;color:var(--mute)}
+.legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.legend button{font-size:11px;padding:2px 9px;border-radius:999px;border:1px solid var(--line);background:#fff}
+.legend button:hover{border-color:var(--c);color:var(--red)}
+@media(max-width:900px){.mapwrap{grid-template-columns:1fr}.side{position:static}.pin .lb{font-size:10px;padding:1px 5px}}
+
+/* places */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.place{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3;border:3px solid #fff;box-shadow:0 6px 18px rgba(80,60,30,.15);transition:.2s}
+.place:hover{transform:translateY(-3px) rotate(.4deg)}
+.place img{width:100%;height:100%;object-fit:cover}
+.place span{position:absolute;left:10px;bottom:10px;background:rgba(255,253,248,.95);padding:4px 12px;border-radius:999px;font-weight:700;font-size:14px}
+.place small{color:var(--c);margin-right:6px;font-size:11px;filter:brightness(.7)}
+
+/* people */
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:22px}
+.chip{padding:6px 16px;border-radius:999px;border:2px solid var(--line);background:#fff;font-weight:700;font-size:14px}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px}
+.card{text-align:left;background:var(--card);border-radius:16px;overflow:hidden;border:2px solid var(--line);transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:var(--c);box-shadow:0 10px 24px rgba(80,60,30,.15)}
+.card .ph{aspect-ratio:1/1;overflow:hidden;background:var(--bg2)}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:.3s}
+.card:hover .ph img{transform:scale(1.05)}
+.card .bar{height:5px;background:var(--c)}
+.card .tx{padding:10px 12px 12px}
+.card h3{font-size:16px;display:flex;align-items:center;gap:6px}
+.gr{font-size:11px;font-weight:900;color:#fff;background:var(--g);border-radius:5px;padding:0 6px;line-height:18px}
+.card .meta{font-size:12px;color:var(--mute)}
+.card .gc{font-family:"Jua",sans-serif;font-size:13px;color:var(--red);margin-top:4px;line-height:1.35}
+.count{text-align:center;color:var(--mute);margin-top:18px;font-size:13px}
+
+/* webtoon */
+.soon{text-align:center;background:var(--card);border:3px dashed var(--line);border-radius:18px;padding:50px 20px;color:var(--mute)}
+.soon b{display:block;font-family:"Jua",sans-serif;font-weight:400;font-size:26px;color:var(--red);margin-bottom:6px}
+
+footer{text-align:center;padding:40px 20px 50px;color:var(--mute);font-size:13px;border-top:10px solid transparent;border-image:var(--corn) 10}
+footer .fun{display:block;color:var(--red);font-size:15px;margin-top:4px}
+
+/* dialogs */
+dialog{margin:auto;border:0;border-radius:20px;background:var(--card);color:var(--ink);width:min(760px,94vw);max-height:92vh;overflow:auto;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(40,30,20,.55);backdrop-filter:blur(3px)}
+.dlg-x{position:sticky;top:10px;float:right;margin:10px 10px -46px 0;width:36px;height:36px;border-radius:50%;background:#fff;font-size:22px;z-index:3;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.dlg-img img{width:100%;aspect-ratio:1216/832;object-fit:cover}
+.faces{display:flex;gap:6px;padding:10px 14px;overflow-x:auto;background:var(--bg2)}
+.faces button{flex:0 0 auto;width:66px;border-radius:10px;overflow:hidden;border:2px solid transparent;background:#fff}
+.faces button.on{border-color:var(--red)}
+.faces img{aspect-ratio:1/1;object-fit:cover}
+.faces span{display:block;font-size:11px;font-weight:700;text-align:center}
+.dlg-body,.pd{padding:18px 22px 24px}
+.dlg-body h3,.pd h3{font-family:"Noto Serif KR",serif;font-size:26px;display:flex;align-items:center;gap:8px}
+.dlg-body .sub{color:var(--mute);font-size:13px;margin-bottom:8px}
+.dlg-body p,.pd p{font-size:15px;color:#4a3826;margin-bottom:12px}
+.godsay{display:flex;gap:12px;align-items:flex-start;background:#fff4f0;border:2px solid #f3c9c4;border-radius:14px;padding:10px 14px;margin:6px 0 14px}
+.godsay img{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:30% 30%;flex:0 0 auto;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+.godsay small{display:block;font-size:11px;color:var(--mute);font-weight:700}
+.godsay q{font-family:"Jua",sans-serif;font-size:16px;color:var(--red);quotes:none}
+.dl{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.dl div{background:var(--bg2);border-radius:10px;padding:8px 12px}
+.dl dt{font-size:11px;color:var(--mute);font-weight:700}
+.dl dd{font-weight:700}
+.dl a{color:var(--red);cursor:pointer;text-decoration:underline}
 </style>
 </head>
 <body>
 
 <header id="hdr">
-  <a class="brand" href="#"><img src="img/logo_hd.webp" alt="신이 보고 있다 (팝콘 들고)"></a>
+  <a class="brand" href="#"><img src="img/logo_v3.webp" alt="신이 보고 있다 (팝콘 들고)"></a>
   <nav id="nav">
     <a href="#world">세계관</a>
     <a href="#map">대륙 지도</a>
@@ -212,68 +175,70 @@ dialog::backdrop{background:#03050bd9;backdrop-filter:blur(4px)}
 </header>
 
 <div class="hero">
-  <div class="bg"></div>
-  <div class="god" aria-hidden="true"><img src="img/god_watch.webp" alt=""><div class="bubble">날 재밌게 해달라구~</div></div>
-  <div class="corn" id="corn" aria-hidden="true"></div>
+  <div class="god" aria-hidden="true"><img src="img/god_watch.webp" alt=""></div>
   <div class="in">
-    <div class="eyebrow">World Archive</div>
-    <h1 class="logo"><img src="img/logo_hd.webp" alt="신이 보고 있다 (팝콘 들고)"></h1>
-    <p class="lead">세계수 아래 여덟 종족이 사는 대륙.<br>그 절반은 이미 마족령의 붉은 땅에 잠겼다.</p>
-    <p class="joke">※ 이 세계의 신은 개입하지 않습니다. 구경만 합니다.</p>
+    <span class="ticket">신 전용 관람석 · 오늘도 상영 중</span>
+    <h1 class="logo"><img src="img/logo_v3.webp" alt="신이 보고 있다 (팝콘 들고)"></h1>
+    <p class="lead">세계수 아래 여덟 종족이 아웅다웅 사는 대륙.<br>마족령이 반쯤 먹어 치웠지만, 신은 지금 팝콘 리필 중.</p>
+    <p class="joke fun">※ 이 세계의 신은 개입하지 않습니다. 재밌으면 박수만 칩니다.</p>
     <div class="btns">
-      <a class="btn fill" href="#map">지도 보기</a>
-      <a class="btn" href="#people">인물 보기</a>
+      <a class="btn fill" href="#map">관람 시작하기</a>
+      <a class="btn" href="#people">출연진 보기</a>
     </div>
   </div>
 </div>
 
 <section id="world">
   <div class="sh">
-    <span class="eyebrow">World</span>
+    <span class="eyebrow">Cast</span>
     <h2>세계관</h2>
-    <p>대륙에 사는 여덟 종족과 그들의 터전</p>
+    <p class="fun">신이 고른 여덟 종족. 전원 자기가 주인공인 줄 안다.</p>
   </div>
   <div class="races" id="races"></div>
 </section>
+<div class="divider"></div>
 
 <section id="map">
   <div class="sh">
-    <span class="eyebrow">Continent</span>
+    <span class="eyebrow">Stage</span>
     <h2>대륙 지도</h2>
-    <p>지명을 누르면 그곳에 사는 인물을 볼 수 있어요</p>
+    <p class="fun">지명을 누르면 그 동네 출연진이 나와요. 신은 이미 다 봤음.</p>
   </div>
   <div class="mapwrap">
     <div class="map" id="mapbox"><img src="img/map.webp" alt="대륙 지도" width="1216" height="832"></div>
     <aside class="side" id="side"></aside>
   </div>
 </section>
+<div class="divider"></div>
 
 <section id="places">
   <div class="sh">
-    <span class="eyebrow">Places</span>
+    <span class="eyebrow">Location</span>
     <h2>장소</h2>
-    <p>대륙 곳곳의 풍경. 누르면 크게 볼 수 있어요</p>
+    <p class="fun">촬영지 모음. 입장료는 없지만 생존은 셀프예요.</p>
   </div>
   <div class="pgrid" id="pgrid"></div>
 </section>
+<div class="divider"></div>
 
 <section id="people">
   <div class="sh">
     <span class="eyebrow">Characters</span>
     <h2>인물 도감</h2>
-    <p>카드를 누르면 감정별 모습과 정보를 볼 수 있어요</p>
+    <p class="fun">카드를 누르면 표정 관찰 가능. 신의 한줄평은 덤.</p>
   </div>
   <div class="chips" id="chips"></div>
   <div class="grid" id="grid"></div>
   <p class="count" id="count"></p>
 </section>
+<div class="divider"></div>
 
 <section id="webtoon">
   <div class="sh">
-    <span class="eyebrow">Webtoon</span>
+    <span class="eyebrow">Coming Soon</span>
     <h2>웹툰</h2>
   </div>
-  <div class="soon"><b>준비 중</b>곧 공개됩니다.</div>
+  <div class="soon"><b>상영 준비 중</b>신이 팝콘 사러 갔어요. 곧 돌아옵니다.</div>
 </section>
 
 <dialog id="pdlg">
@@ -282,7 +247,7 @@ dialog::backdrop{background:#03050bd9;backdrop-filter:blur(4px)}
   <div class="pd"><h3 id="pname"></h3><p id="pdesc"></p><a class="btn" id="pmap">지도에서 보기</a></div>
 </dialog>
 
-<footer>신이 보고 있다 (팝콘 들고) · 세계 기록</footer>
+<footer>신이 보고 있다 (팝콘 들고) · 관람 기록<span class="fun">모든 사건은 신의 개입 없이 일어났습니다. 아마도요.</span></footer>
 
 <dialog id="dlg">
   <button class="dlg-x" id="dlgx" aria-label="닫기">×</button>
@@ -292,6 +257,7 @@ dialog::backdrop{background:#03050bd9;backdrop-filter:blur(4px)}
     <h3 id="dname"></h3>
     <div class="sub" id="dsub"></div>
     <p id="ddesc"></p>
+    <div class="godsay"><img src="img/god_watch.webp" alt=""><div><small>신의 한줄평</small><q id="dgod"></q></div></div>
     <dl class="dl" id="ddl"></dl>
   </div>
 </dialog>
@@ -302,34 +268,76 @@ const EMO = {k:'기본',s:'미소',t:'슬픔',h:'화남',b:'부끄',d:'경멸',q
 const GC = {S:'var(--S)',A:'var(--A)',B:'var(--B)',C:'var(--C)',D:'var(--D)'};
 
 const REGIONS = [
-  {k:'holy',  n:'신성국',       race:'인간', x:49.3,y:43.5, c:'#f4e7b0', d:'대륙 한가운데 호수 섬에 세워진 성도. 성녀와 사제들이 머무는 하얀 대성당이 있다.'},
-  {k:'magic', n:'마법왕국',     race:'인간', x:29.6,y:41.5, c:'#8fb4ff', d:'하늘에 떠 있는 마탑들의 왕국. 같은 롱코트를 입은 마법사들이 연구와 수련을 한다.'},
-  {k:'knight',n:'기사왕국',     race:'인간', x:17.3,y:52.5, c:'#c9d3e6', d:'원형 성채를 중심으로 한 기사들의 나라. 기사단이 대륙의 서쪽 땅을 지킨다.'},
-  {k:'adv',   n:'모험가 도시',  race:'인간', x:28.8,y:76.5, c:'#f0c98a', d:'붉은 지붕이 모인 성벽 도시. 모험가 길드가 있어 각지의 의뢰와 사람이 모여든다.'},
-  {k:'elf',   n:'엘프의 숲',    race:'엘프', x:10.7,y:37.5, c:'#9fe08f', d:'대륙 서쪽을 덮은 깊은 숲. 숲 한가운데 세계수가 솟아 있고, 엘프 귀족과 숲 감시자들이 숲을 지킨다.'},
-  {k:'delf',  n:'다크엘프 숲',  race:'다크엘프', x:69.5,y:30.5, c:'#c5a3ff', d:'마족령과 맞닿은 어두운 숲. 다크엘프 암살자와 술사들이 숨어 산다.'},
-  {k:'beast', n:'수인 부락',    race:'수인', x:14.5,y:72.0, c:'#ffb86b', d:'남서쪽 들판과 숲에 흩어진 수인들의 마을. 카페와 도장, 꽃밭이 어우러져 있다.'},
-  {k:'dwarf', n:'드워프 왕국',  race:'드워프', x:8.5,y:24.0, c:'#d6b99a', d:'서북쪽 설산 속 산악 요새. 대장간과 공방의 불이 꺼지지 않는다.'},
-  {k:'fire',  n:'화룡 화산',    race:'용족', x:17.7,y:15.5, c:'#ff7a5c', d:'끊임없이 연기를 뿜는 북서쪽 화산. 화룡이 보물 위에서 잠든다.'},
-  {k:'ice',   n:'빙룡 설원',    race:'용족', x:36.5,y:19.5, c:'#9fd8ff', d:'북쪽 산맥 아래의 얼어붙은 설원. 무표정한 빙룡이 산다.'},
-  {k:'gold',  n:'용왕의 영봉',  race:'용족', x:55.5,y:10.5, c:'#f2c14e', d:'대륙 가장 높은 봉우리. 용족을 다스리는 용왕의 옥좌가 있다.'},
-  {k:'dark',  n:'흑룡 암벽',    race:'용족', x:76.5,y:15.5, c:'#b08cff', d:'북동쪽 화산 옆 검은 암벽. 흑룡 무사가 신사를 지킨다.'},
-  {k:'wind',  n:'풍룡 하늘섬',  race:'용족', x:67.5,y:46.5, c:'#8ff0c4', d:'바다 위를 떠다니는 작은 하늘섬들. 바람의 용이 섬 사이를 날아다닌다.'},
-  {k:'sea',   n:'해저 왕국',    race:'해양족', x:56.7,y:75.0, c:'#7fe7ff', d:'대륙 안쪽 바다 아래에서 빛나는 수정 도시. 인어와 해양족이 산다.'},
-  {k:'demon', n:'마족령',       race:'마족', x:87.0,y:60.5, c:'#ff5b5b', d:'대륙 동쪽 절반을 집어삼킨 붉은 균열의 땅. 마왕 아스타의 마왕성이 있다.'},
+  {k:'holy',  n:'신성국',       race:'인간', x:49.3,y:43.5, c:'#e0b84a', d:'대륙 한가운데 호수 섬의 성도. 하루 종일 신에게 기도가 올라오는데, 신은 대부분 읽씹 중.'},
+  {k:'magic', n:'마법왕국',     race:'인간', x:29.6,y:41.5, c:'#4f86d9', d:'하늘에 둥둥 뜬 마탑들의 왕국. 실험이 하루에 한 번씩 터지는 덕분에 볼거리가 끊이지 않는다.'},
+  {k:'knight',n:'기사왕국',     race:'인간', x:17.3,y:52.5, c:'#7d8aa6', d:'원형 성채 중심의 기사들의 나라. 제복 다림질이 국가 행사급으로 진지하다.'},
+  {k:'adv',   n:'모험가 도시',  race:'인간', x:28.8,y:76.5, c:'#d98a3c', d:'붉은 지붕이 모인 성벽 도시. 의뢰는 넘치고 보상은 늘 짜다. 길드 게시판이 이 세계 최고의 드라마.'},
+  {k:'elf',   n:'엘프의 숲',    race:'엘프', x:10.7,y:37.5, c:'#3fae7a', d:'세계수가 솟은 깊은 숲. 엘프들은 천 년째 우아한 척 중이고, 정원사는 천 년째 물만 준다.'},
+  {k:'delf',  n:'다크엘프 숲',  race:'다크엘프', x:69.5,y:30.5, c:'#8a5cd6', d:'마족령 옆 어두운 숲. 분위기는 무겁지만 사실 다들 밤에 일하는 직장인이다.'},
+  {k:'beast', n:'수인 부락',    race:'수인', x:14.5,y:72.0, c:'#e58a2e', d:'카페, 도장, 꽃밭이 섞인 수인들의 마을. 귀와 꼬리 때문에 거짓말이 잘 안 통한다.'},
+  {k:'dwarf', n:'드워프 왕국',  race:'드워프', x:8.5,y:24.0, c:'#a0764e', d:'설산 속 산악 요새. 대장간 불이 한 번도 안 꺼졌다. 소음 민원도 한 번도 안 받아줬다.'},
+  {k:'fire',  n:'화룡 화산',    race:'용족', x:17.7,y:15.5, c:'#e0573a', d:'연기를 뿜는 화산. 화룡이 보물 위에서 자는데, 보물을 세다 잠드는 게 일과다.'},
+  {k:'ice',   n:'빙룡 설원',    race:'용족', x:36.5,y:19.5, c:'#5aaee0', d:'얼어붙은 설원. 빙룡이 무표정으로 살고 있다. 표정이 얼어서 그런 건지는 아무도 모른다.'},
+  {k:'gold',  n:'용왕의 영봉',  race:'용족', x:55.5,y:10.5, c:'#e0a92b', d:'대륙에서 제일 높은 봉우리. 용왕의 옥좌가 있다. 신 다음으로 높은 자리라고 본인이 주장한다.'},
+  {k:'dark',  n:'흑룡 암벽',    race:'용족', x:76.5,y:15.5, c:'#6b4fb0', d:'검은 암벽 위 신사. 흑룡 무사가 지키는데, 너무 진지해서 신이 자주 놀리러 온다.'},
+  {k:'wind',  n:'풍룡 하늘섬',  race:'용족', x:67.5,y:46.5, c:'#3fbf95', d:'바다 위를 떠다니는 하늘섬들. 주소가 매일 바뀌어서 택배가 안 온다.'},
+  {k:'sea',   n:'해저 왕국',    race:'해양족', x:56.7,y:75.0, c:'#2fb5d6', d:'바다 아래 빛나는 수정 도시. 인어들이 노래하는 곳. 육지 소식은 3일 늦게 도착한다.'},
+  {k:'demon', n:'마족령',       race:'마족', x:87.0,y:60.5, c:'#d8414a', d:'대륙 동쪽 절반을 먹어 치운 붉은 땅. 마왕 아스타의 성이 있다. 신의 최애 채널.'},
 ];
 const RMAP = Object.fromEntries(REGIONS.map(r=>[r.k,r]));
 
 const RACES = [
-  {n:'인간', c:'#d9b46a', w:'마법왕국 · 기사왕국 · 신성국 · 모험가 도시', d:'네 개의 나라와 도시로 나뉘어 대륙 서쪽과 중앙에 산다. 마법, 검, 신성력, 모험 각자의 길을 걷는다.'},
-  {n:'용족', c:'#ff7a5c', w:'화룡 화산 · 빙룡 설원 · 풍룡 하늘섬 · 흑룡 암벽 · 용왕의 영봉', d:'속성마다 다른 땅에 흩어져 사는 용들. 그 위에 용왕이 군림한다.'},
-  {n:'드워프', c:'#d6b99a', w:'드워프 왕국', d:'설산의 산악 요새에 사는 장인 종족. 단조와 기계, 보석 세공에 능하다.'},
-  {n:'엘프', c:'#9fe08f', w:'엘프의 숲', d:'대륙 서쪽 깊은 숲과 세계수의 주인. 자연과 정령, 꿈의 마법을 다룬다.'},
-  {n:'다크엘프', c:'#c5a3ff', w:'다크엘프 숲', d:'마족령과 맞닿은 어두운 숲에 숨어 사는 엘프. 독과 저주에 능하다.'},
-  {n:'수인', c:'#ffb86b', w:'수인 부락', d:'동물의 귀와 꼬리를 가진 종족. 부락마다 저마다의 방식으로 살아간다.'},
-  {n:'마족', c:'#ff5b5b', w:'마족령', d:'대륙의 절반을 차지한 마족령의 주민. 마왕 아래 서큐버스와 마족들이 산다.'},
-  {n:'해양족', c:'#7fe7ff', w:'해저 왕국', d:'바다 아래 빛나는 해저 왕국의 백성. 인어와 바다 마녀가 산다.'},
+  {n:'인간', c:'#c99a3c', w:'마법왕국 · 기사왕국 · 신성국 · 모험가 도시', d:'네 나라로 갈라져서 서로 자기가 최고라고 한다. 신 입장에선 제일 시끄럽고 제일 재밌는 종족.'},
+  {n:'용족', c:'#e0573a', w:'화룡 화산 · 빙룡 설원 · 풍룡 하늘섬 · 흑룡 암벽 · 용왕의 영봉', d:'속성별로 흩어져 사는 용들. 다들 자기가 제일 세다고 믿고, 용왕만 그걸 실제로 증명한 적 있다.'},
+  {n:'드워프', c:'#a0764e', w:'드워프 왕국', d:'설산의 장인 종족. 말보다 망치 소리로 대화한다. 납기는 칼같이 지킨다.'},
+  {n:'엘프', c:'#3fae7a', w:'엘프의 숲', d:'세계수의 주인. 우아함이 기본값. 천 년을 살아서 지루할 법도 한데 아직도 꽃에 물 주는 걸 좋아한다.'},
+  {n:'다크엘프', c:'#8a5cd6', w:'다크엘프 숲', d:'그늘에 사는 엘프. 독과 저주 전문. 무서워 보이지만 다들 야근 중일 뿐이다.'},
+  {n:'수인', c:'#e58a2e', w:'수인 부락', d:'귀와 꼬리가 감정을 다 들켜 버리는 종족. 신이 보기에 리액션 장인들.'},
+  {n:'마족', c:'#d8414a', w:'마족령', d:'대륙 절반을 차지한 주인공 같은 악역. 마왕부터 서큐버스까지 텐션이 늘 최고치.'},
+  {n:'해양족', c:'#2fb5d6', w:'해저 왕국', d:'바다 아래 사는 인어와 바다 마녀. 육지 일에 관심 없는 척하지만 소문은 제일 빨리 퍼뜨린다.'},
 ];
+
+const GOD = {
+  c01:'책 읽다 고개 들 때가 제일 무서운 타입. 시공 마법으로 내 팝콘도 훔쳐 갈 것 같다.',
+  c02:'드릴 머리에 불 마법. 성격까지 화력이 너무 세다. 그래서 좋아.',
+  c03:'포션 실험 볼 때마다 손에 땀이 난다. 이번엔 뭐가 터질까.',
+  c04:'말수가 적은데 번개는 많다. 대화 대신 감전으로 대답하는 스타일.',
+  c05:'이 세계에서 제일 착한 남자. 너무 착해서 스토리상 위험하다.',
+  c06:'등장할 때마다 망토 휘날림 연출이 들어간다. 본인이 직접 바람 일으키는 듯.',
+  c07:'경례 각도가 매번 똑같다. 자로 잰 줄 알았다.',
+  c08:'사과 들고 손 흔드는 게 일과. 이 대륙의 힐링 담당.',
+  c09:'안대 밑에 뭐가 있는지 나도 궁금해서 매일 본다.',
+  c11:'기도가 너무 성실해서 가끔 답장해 줄까 고민된다. 아직 안 했다.',
+  c13:'빵 바구니 들고 뛰다가 넘어지는 게 이 대륙 최고의 슬랩스틱.',
+  c15:'실눈 캐릭터는 원래 수상하다. 이건 신의 경험칙이다.',
+  c16:'엄지 척이 거의 필살기 수준. 열정은 S급, 실력은 아직 C급.',
+  c17:'항상 나무 위에서 내려다본다. 나랑 취향이 같다.',
+  c20:'허세 담당. 도끼보다 목소리가 더 크다.',
+  c21:'보물 세다가 잠드는 게 일과. 하나라도 없어지면 화산이 터진다.',
+  c22:'무표정 0.1mm 변화를 잡아내는 게 요즘 내 취미.',
+  c23:'고기 뜯다가 하늘섬에서 떨어진 적만 세 번. 바람 용 맞나.',
+  c24:'칼집 넣는 소리까지 진지하다. 웃기면 지는 게임 상대로 최고.',
+  c25:'자기 다음으로 높은 건 나뿐이라고 생각한다. 맞긴 하다.',
+  c26:'말 대신 망치로 대답한다. 세 번 치면 "알았다"라는 뜻.',
+  c27:'렌치 하나로 다 고친다. 가끔 멀쩡한 것도 고친다.',
+  c28:'돋보기로 보석 볼 때 눈이 제일 반짝인다. 보석보다 더.',
+  c29:'세계수 아래가 너무 잘 어울려서 배경인 줄 알았다.',
+  c30:'경계심 MAX. 나한테도 활 겨눈 적 있다.',
+  c31:'꿈 마법으로 물 주는 꿈을 꾸면서 진짜로 물을 준다. 성실 그 자체.',
+  c32:'차분함이 너무 완벽해서 흔들리는 걸 한 번 보고 싶다.',
+  c33:'팔짱 끼고 있을 때가 제일 위험하다. 이미 등 뒤에 있음.',
+  c34:'요염한데 저주도 건다. 이 조합은 반칙이다.',
+  c36:'새침한데 쟁반 위 음료는 한 방울도 안 흘린다. 프로.',
+  c37:'나무 뒤에 숨는데 귀가 다 보인다. 귀여우니까 모른 척해 준다.',
+  c40:'자신감은 호랑이, 번개는 덤. 도장 문 부수고 들어오는 게 기본.',
+  c41:'옥좌에서 다리 꼬는 각이 나랑 똑같다. 라이벌로 인정.',
+  c42:'손가락 입에 대는 포즈 연습 중인 거 다 봤다.',
+  c43:'윙크하면서 날다가 벽에 부딪힌다. 매번.',
+  c52:'바위 위에 앉아 있는 게 화보 그 자체. 다만 육지 소식은 늘 늦게 안다.',
+  c53:'문지기 근무 태도 만점. 졸지 않는 게 신기할 정도.',
+  c55:'산호초에서 손 흔드는 속도가 이 바다에서 제일 빠르다.',
+  c56:'빛나는 구슬로 미래를 본다는데, 나도 결말은 안 알려 줬다.',
+};
 
 const $ = s=>document.querySelector(s);
 const img = (p,c)=>`img/${p.id}_${c}.webp`;
@@ -356,8 +364,8 @@ function pick(k){
   const ps = PEOPLE.filter(p=>p.reg===k);
   $('#side').style.setProperty('--c',r.c);
   $('#side').innerHTML = `<img class="rimg" src="img/r_${r.k}.webp" alt="${r.n}" onclick="openPlace('${r.k}')"><span class="tag">${r.race}</span><h3>${r.n}</h3><p>${r.d}</p>
-    <h4>사는 인물 ${ps.length}</h4>
-    ${ps.length?`<div class="who">${ps.map(p=>`<button data-id="${p.id}"><img src="${img(p,'th')}" alt="${p.name}" loading="lazy"><span>${p.name}<small>${p.role}</small></span></button>`).join('')}</div>`:'<div class="empty">아직 등록된 인물이 없어요.</div>'}
+    <h4>이 동네 출연진 ${ps.length}명</h4>
+    ${ps.length?`<div class="who">${ps.map(p=>`<button data-id="${p.id}"><img src="${img(p,'th')}" alt="${p.name}" loading="lazy"><span>${p.name}<small>${p.role}</small></span></button>`).join('')}</div>`:'<div class="empty">아직 출연진 미정. 신이 캐스팅 중이에요.</div>'}
     <div class="legend">${REGIONS.filter(x=>x.k!==k).map(x=>`<button style="--c:${x.c}" data-k="${x.k}">${x.n}</button>`).join('')}</div>`;
   $('#side').querySelectorAll('.who button').forEach(b=>b.onclick=()=>open(b.dataset.id));
   $('#side').querySelectorAll('.legend button').forEach(b=>b.onclick=()=>pick(b.dataset.k));
@@ -385,10 +393,10 @@ function draw(){
     return `<button class="card" data-id="${p.id}" style="--c:${r.c}">
       <div class="ph"><img src="${img(p,'th')}" alt="${p.name}" loading="lazy"></div><div class="bar"></div>
       <div class="tx"><h3>${p.name}<span class="gr" style="--g:${GC[p.grade]}">${p.grade}</span></h3>
-      <div class="meta">${p.race} · ${p.aff} · ${p.role}</div><div class="at">${p.attr}</div></div></button>`;
+      <div class="meta">${p.race} · ${p.role} · ${p.attr}</div><div class="gc">${GOD[p.id]||''}</div></div></button>`;
   }).join('');
   $('#grid').querySelectorAll('.card').forEach(b=>b.onclick=()=>open(b.dataset.id));
-  $('#count').textContent = `${ps.length}명`;
+  $('#count').textContent = `출연진 ${ps.length}명 · 신은 전원 관찰 중`;
 }
 draw();
 
@@ -401,7 +409,7 @@ function open(id){
   $('#faces').querySelectorAll('button').forEach(b=>b.onclick=()=>{$('#dimg').src=img(p,b.dataset.c);$('#faces').querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));});
   $('#dname').innerHTML=`${p.name}<span class="gr" style="--g:${GC[p.grade]}">${p.grade}</span>`;
   $('#dsub').textContent=`${p.race} · ${p.aff} · ${p.role}`;
-  $('#ddesc').textContent=p.desc;
+  $('#ddesc').textContent=p.desc; $('#dgod').textContent=GOD[p.id]||'';
   $('#ddl').innerHTML=`<div><dt>종족</dt><dd>${p.race}</dd></div><div><dt>사는 곳</dt><dd><a data-k="${p.reg}">${r.n}</a></dd></div><div><dt>전투 속성</dt><dd>${p.attr}</dd></div><div><dt>등급</dt><dd>${p.grade}</dd></div>`;
   $('#ddl').querySelector('a').onclick=()=>{dlg.close();pick(p.reg);$('#map').scrollIntoView();};
   dlg.showModal(); dlg.scrollTop=0;
@@ -416,13 +424,6 @@ const navs=[...document.querySelectorAll('nav a')];
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)navs.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id));}),{rootMargin:'-45% 0px -50% 0px'});
 ['world','map','places','people','webtoon'].forEach(id=>io.observe(document.getElementById(id)));
 </script>
-<script>
-(()=>{const c=document.getElementById('corn');if(!c)return;const g=document.querySelector('.hero .god');
-function drop(){const s=document.createElement('span');s.textContent='🍿';const gb=g.getBoundingClientRect(),hb=c.getBoundingClientRect();
-const x=(gb.left-hb.left)+gb.width*(0.2+Math.random()*0.25);s.style.left=x+'px';s.style.top=(gb.top-hb.top+gb.height*0.78)+'px';
-s.style.setProperty('--dx',(-80-Math.random()*260)+'px');s.style.setProperty('--r',(Math.random()*720-360)+'deg');s.style.fontSize=(12+Math.random()*12)+'px';
-s.style.animationDuration=(4+Math.random()*4)+'s';c.appendChild(s);setTimeout(()=>s.remove(),9000);}
-if(!matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(drop,700);})();
-</script>
+
 </body>
 </html>
