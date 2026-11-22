@@ -73,6 +73,7 @@ section{padding:110px clamp(16px,5vw,64px) 40px;max-width:1240px;margin:0 auto}
 .pin.on .dot{animation:pulse 1.4s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 3px #0008,0 0 0 0 var(--c)}100%{box-shadow:0 0 0 3px #0008,0 0 0 16px transparent}}
 .side{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;position:sticky;top:84px;max-height:calc(100vh - 110px);overflow:auto}
+.side .rimg{width:100%;aspect-ratio:1216/832;object-fit:cover;border-radius:10px;margin-bottom:14px;cursor:zoom-in;border:1px solid var(--line)}
 .side .tag{display:inline-block;font-size:12px;padding:2px 10px;border-radius:999px;border:1px solid var(--c);color:var(--c);margin-bottom:10px}
 .side h3{font-family:"Noto Serif KR",serif;font-size:24px;margin-bottom:8px}
 .side p{font-size:14px;color:#c6c3ba;margin-bottom:16px}
@@ -87,6 +88,15 @@ section{padding:110px clamp(16px,5vw,64px) 40px;max-width:1240px;margin:0 auto}
 .legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
 .legend button{font-size:12px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--mute)}
 .legend button:hover{border-color:var(--c);color:var(--ink)}
+
+/* places */
+$('#pgrid').innerHTML = REGIONS.map(r=>`<button class="place" style="--c:${r.c}" data-k="${r.k}"><img src="img/r_${r.k}.webp" alt="${r.n}" loading="lazy"><span><small>${r.race}</small>${r.n}</span></button>`).join('');
+$('#pgrid').querySelectorAll('.place').forEach(b=>b.onclick=()=>openPlace(b.dataset.k));
+const pdlg=$('#pdlg');
+function openPlace(k){const r=RMAP[k];$('#pimg').src=`img/r_${k}.webp`;$('#pimg').alt=r.n;$('#pname').textContent=r.n;$('#pdesc').textContent=r.d;$('#pmap').onclick=()=>{pdlg.close();pick(k);$('#map').scrollIntoView();};pdlg.showModal();}
+window.openPlace=openPlace;
+$('#pdlgx').onclick=()=>pdlg.close();
+pdlg.addEventListener('click',e=>{if(e.target===pdlg)pdlg.close();});
 
 /* people */
 .chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:28px}
@@ -107,6 +117,17 @@ section{padding:110px clamp(16px,5vw,64px) 40px;max-width:1240px;margin:0 auto}
 .gr{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:6px;font-size:12px;font-weight:900;color:#111;background:var(--g)}
 .count{text-align:center;color:var(--mute);font-size:13px;margin-top:18px}
 
+/* places */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.place{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);aspect-ratio:1216/832;text-align:left}
+.place img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.place:hover img{transform:scale(1.05)}
+.place span{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 10px;background:linear-gradient(#0000,#000c);font-weight:700;font-size:15px}
+.place span small{display:block;font-weight:400;font-size:12px;color:var(--c)}
+#pdlg .pd{padding:18px 26px 26px}
+#pdlg h3{font-family:"Noto Serif KR",serif;font-size:26px}
+#pdlg p{color:#d0ccc0;margin-top:8px}
+#pdlg .btn{margin-top:14px}
 /* webtoon */
 .soon{border:1px dashed #3b4566;border-radius:16px;padding:56px 20px;text-align:center;color:var(--mute)}
 .soon b{display:block;font-family:"Noto Serif KR",serif;color:var(--ink);font-size:20px;margin-bottom:6px}
@@ -151,6 +172,7 @@ dialog::backdrop{background:#03050bd9;backdrop-filter:blur(4px)}
   <nav id="nav">
     <a href="#world">세계관</a>
     <a href="#map">대륙 지도</a>
+    <a href="#places">장소</a>
     <a href="#people">인물 도감</a>
     <a href="#webtoon">웹툰</a>
   </nav>
@@ -191,6 +213,15 @@ dialog::backdrop{background:#03050bd9;backdrop-filter:blur(4px)}
   </div>
 </section>
 
+<section id="places">
+  <div class="sh">
+    <span class="eyebrow">Places</span>
+    <h2>장소</h2>
+    <p>대륙 곳곳의 풍경. 누르면 크게 볼 수 있어요</p>
+  </div>
+  <div class="pgrid" id="pgrid"></div>
+</section>
+
 <section id="people">
   <div class="sh">
     <span class="eyebrow">Characters</span>
@@ -209,6 +240,12 @@ dialog::backdrop{background:#03050bd9;backdrop-filter:blur(4px)}
   </div>
   <div class="soon"><b>준비 중</b>곧 공개됩니다.</div>
 </section>
+
+<dialog id="pdlg">
+  <button class="dlg-x" id="pdlgx" aria-label="닫기">×</button>
+  <div class="dlg-img"><img id="pimg" alt=""></div>
+  <div class="pd"><h3 id="pname"></h3><p id="pdesc"></p><a class="btn" id="pmap">지도에서 보기</a></div>
+</dialog>
 
 <footer>신이 보고 있다 (팝콘 들고) · 세계 기록</footer>
 
@@ -230,11 +267,11 @@ const EMO = {k:'기본',s:'미소',t:'슬픔',h:'화남',b:'부끄',d:'경멸',q
 const GC = {S:'var(--S)',A:'var(--A)',B:'var(--B)',C:'var(--C)',D:'var(--D)'};
 
 const REGIONS = [
-  {k:'holy',  n:'신성국',       race:'인간', x:49.3,y:43.5, c:'#f4e7b0', d:'대륙 한가운데, 세계수 곁의 섬에 세워진 성도. 성녀와 사제들이 머무는 하얀 대성당이 있다.'},
+  {k:'holy',  n:'신성국',       race:'인간', x:49.3,y:43.5, c:'#f4e7b0', d:'대륙 한가운데 호수 섬에 세워진 성도. 성녀와 사제들이 머무는 하얀 대성당이 있다.'},
   {k:'magic', n:'마법왕국',     race:'인간', x:29.6,y:41.5, c:'#8fb4ff', d:'하늘에 떠 있는 마탑들의 왕국. 같은 롱코트를 입은 마법사들이 연구와 수련을 한다.'},
   {k:'knight',n:'기사왕국',     race:'인간', x:17.3,y:52.5, c:'#c9d3e6', d:'원형 성채를 중심으로 한 기사들의 나라. 기사단이 대륙의 서쪽 땅을 지킨다.'},
   {k:'adv',   n:'모험가 도시',  race:'인간', x:28.8,y:76.5, c:'#f0c98a', d:'붉은 지붕이 모인 성벽 도시. 모험가 길드가 있어 각지의 의뢰와 사람이 모여든다.'},
-  {k:'elf',   n:'엘프의 숲',    race:'엘프', x:10.7,y:37.5, c:'#9fe08f', d:'대륙 서쪽을 덮은 깊은 숲. 엘프 귀족과 숲 감시자들이 숲을 지킨다.'},
+  {k:'elf',   n:'엘프의 숲',    race:'엘프', x:10.7,y:37.5, c:'#9fe08f', d:'대륙 서쪽을 덮은 깊은 숲. 숲 한가운데 세계수가 솟아 있고, 엘프 귀족과 숲 감시자들이 숲을 지킨다.'},
   {k:'delf',  n:'다크엘프 숲',  race:'다크엘프', x:69.5,y:30.5, c:'#c5a3ff', d:'마족령과 맞닿은 어두운 숲. 다크엘프 암살자와 술사들이 숨어 산다.'},
   {k:'beast', n:'수인 부락',    race:'수인', x:14.5,y:72.0, c:'#ffb86b', d:'남서쪽 들판과 숲에 흩어진 수인들의 마을. 카페와 도장, 꽃밭이 어우러져 있다.'},
   {k:'dwarf', n:'드워프 왕국',  race:'드워프', x:8.5,y:24.0, c:'#d6b99a', d:'서북쪽 설산 속 산악 요새. 대장간과 공방의 불이 꺼지지 않는다.'},
@@ -252,7 +289,7 @@ const RACES = [
   {n:'인간', c:'#d9b46a', w:'마법왕국 · 기사왕국 · 신성국 · 모험가 도시', d:'네 개의 나라와 도시로 나뉘어 대륙 서쪽과 중앙에 산다. 마법, 검, 신성력, 모험 각자의 길을 걷는다.'},
   {n:'용족', c:'#ff7a5c', w:'화룡 화산 · 빙룡 설원 · 풍룡 하늘섬 · 흑룡 암벽 · 용왕의 영봉', d:'속성마다 다른 땅에 흩어져 사는 용들. 그 위에 용왕이 군림한다.'},
   {n:'드워프', c:'#d6b99a', w:'드워프 왕국', d:'설산의 산악 요새에 사는 장인 종족. 단조와 기계, 보석 세공에 능하다.'},
-  {n:'엘프', c:'#9fe08f', w:'엘프의 숲', d:'대륙 서쪽 깊은 숲의 주인. 자연과 정령, 꿈의 마법을 다룬다.'},
+  {n:'엘프', c:'#9fe08f', w:'엘프의 숲', d:'대륙 서쪽 깊은 숲과 세계수의 주인. 자연과 정령, 꿈의 마법을 다룬다.'},
   {n:'다크엘프', c:'#c5a3ff', w:'다크엘프 숲', d:'마족령과 맞닿은 어두운 숲에 숨어 사는 엘프. 독과 저주에 능하다.'},
   {n:'수인', c:'#ffb86b', w:'수인 부락', d:'동물의 귀와 꼬리를 가진 종족. 부락마다 저마다의 방식으로 살아간다.'},
   {n:'마족', c:'#ff5b5b', w:'마족령', d:'대륙의 절반을 차지한 마족령의 주민. 마왕 아래 서큐버스와 마족들이 산다.'},
@@ -283,7 +320,7 @@ function pick(k){
   document.querySelectorAll('.pin').forEach(p=>p.classList.toggle('on',p.dataset.k===k));
   const ps = PEOPLE.filter(p=>p.reg===k);
   $('#side').style.setProperty('--c',r.c);
-  $('#side').innerHTML = `<span class="tag">${r.race}</span><h3>${r.n}</h3><p>${r.d}</p>
+  $('#side').innerHTML = `<img class="rimg" src="img/r_${r.k}.webp" alt="${r.n}" onclick="openPlace('${r.k}')"><span class="tag">${r.race}</span><h3>${r.n}</h3><p>${r.d}</p>
     <h4>사는 인물 ${ps.length}</h4>
     ${ps.length?`<div class="who">${ps.map(p=>`<button data-id="${p.id}"><img src="${img(p,'th')}" alt="${p.name}" loading="lazy"><span>${p.name}<small>${p.role}</small></span></button>`).join('')}</div>`:'<div class="empty">아직 등록된 인물이 없어요.</div>'}
     <div class="legend">${REGIONS.filter(x=>x.k!==k).map(x=>`<button style="--c:${x.c}" data-k="${x.k}">${x.n}</button>`).join('')}</div>`;
@@ -291,6 +328,15 @@ function pick(k){
   $('#side').querySelectorAll('.legend button').forEach(b=>b.onclick=()=>pick(b.dataset.k));
 }
 pick('holy');
+
+/* places */
+$('#pgrid').innerHTML = REGIONS.map(r=>`<button class="place" style="--c:${r.c}" data-k="${r.k}"><img src="img/r_${r.k}.webp" alt="${r.n}" loading="lazy"><span><small>${r.race}</small>${r.n}</span></button>`).join('');
+$('#pgrid').querySelectorAll('.place').forEach(b=>b.onclick=()=>openPlace(b.dataset.k));
+const pdlg=$('#pdlg');
+function openPlace(k){const r=RMAP[k];$('#pimg').src=`img/r_${k}.webp`;$('#pimg').alt=r.n;$('#pname').textContent=r.n;$('#pdesc').textContent=r.d;$('#pmap').onclick=()=>{pdlg.close();pick(k);$('#map').scrollIntoView();};pdlg.showModal();}
+window.openPlace=openPlace;
+$('#pdlgx').onclick=()=>pdlg.close();
+pdlg.addEventListener('click',e=>{if(e.target===pdlg)pdlg.close();});
 
 /* people */
 const CH = ['전체',...RACES.map(r=>r.n)];
@@ -333,7 +379,7 @@ const hdr=$('#hdr');
 addEventListener('scroll',()=>hdr.classList.toggle('solid',scrollY>40),{passive:true});
 const navs=[...document.querySelectorAll('nav a')];
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)navs.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id));}),{rootMargin:'-45% 0px -50% 0px'});
-['world','map','people','webtoon'].forEach(id=>io.observe(document.getElementById(id)));
+['world','map','places','people','webtoon'].forEach(id=>io.observe(document.getElementById(id)));
 </script>
 </body>
 </html>
