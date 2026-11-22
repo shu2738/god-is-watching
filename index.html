@@ -189,11 +189,11 @@ dialog::backdrop{background:rgba(20,22,30,.6);backdrop-filter:blur(4px)}
 <header id="hdr">
   <a class="brand" href="#"><img src="img/logo_v3.webp" alt="신이 보고 있다 (팝콘 들고)"></a>
   <nav id="nav">
+    <a href="#webtoon">웹툰</a>
     <a href="#world">세계관</a>
     <a href="#map">대륙 지도</a>
     <a href="#places">장소</a>
     <a href="#people">인물 도감</a>
-    <a href="#webtoon">웹툰</a>
   </nav>
 </header>
 
@@ -209,6 +209,15 @@ dialog::backdrop{background:rgba(20,22,30,.6);backdrop-filter:blur(4px)}
     </div>
   </div>
 </div>
+
+<section id="webtoon">
+  <div class="sh">
+    <div class="eyebrow">Webtoon</div>
+    <h2>웹툰</h2>
+    <div class="orn"><span></span></div>
+  </div>
+  <div class="toon"><div class="ep">프롤로그</div><img src="img/toon_01.webp?v=3" alt="프롤로그 1" width="1000" height="7101"><img src="img/toon_02.webp?v=3" alt="프롤로그 2" width="1000" height="7072" loading="lazy"><img src="img/toon_03.webp?v=3" alt="프롤로그 3" width="1000" height="7394" loading="lazy"></div>
+</section>
 
 <section id="world">
   <div class="sh">
@@ -255,14 +264,6 @@ dialog::backdrop{background:rgba(20,22,30,.6);backdrop-filter:blur(4px)}
   <p class="count" id="count"></p>
 </section>
 
-<section id="webtoon">
-  <div class="sh">
-    <div class="eyebrow">Webtoon</div>
-    <h2>웹툰</h2>
-    <div class="orn"><span></span></div>
-  </div>
-  <div class="toon"><div class="ep">프롤로그</div><img src="img/toon_01.webp?v=3" alt="프롤로그 1" width="1000" height="7101"><img src="img/toon_02.webp?v=3" alt="프롤로그 2" width="1000" height="7072" loading="lazy"><img src="img/toon_03.webp?v=3" alt="프롤로그 3" width="1000" height="7394" loading="lazy"></div>
-</section>
 
 <dialog id="pdlg">
   <button class="dlg-x" id="pdlgx" aria-label="닫기">×</button>
@@ -406,7 +407,7 @@ const hdr=$('#hdr');
 addEventListener('scroll',()=>hdr.classList.toggle('solid',scrollY>40),{passive:true});
 const navs=[...document.querySelectorAll('nav a')];
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)navs.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id));}),{rootMargin:'-45% 0px -50% 0px'});
-['world','map','places','people','webtoon'].forEach(id=>io.observe(document.getElementById(id)));
+['webtoon','world','map','places','people'].forEach(id=>io.observe(document.getElementById(id)));
 </script>
 
 </body>
