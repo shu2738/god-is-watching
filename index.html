@@ -123,7 +123,7 @@ section{padding:100px clamp(16px,5vw,64px);max-width:1280px;margin:0 auto}
 
 
 /* monsters */
-.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.mgrid{display:grid;align-items:start;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
 .mon{display:block;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);padding:5px;transition:.3s}
 .mon:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(120,90,40,.14)}
 .mon .ph{aspect-ratio:3/2;overflow:hidden;background:var(--bg2)}
@@ -407,6 +407,11 @@ const MONS=[
  {k:'chimera',n:'키메라',g:'A',h:'고대 유적',d:'사자, 염소, 뱀이 하나로 섞인 마물. 세 머리가 동시에 덤비고 불을 뿜는다.'},
  {k:'behemoth',n:'베히모스',g:'S',h:'황무지',d:'걸음마다 땅이 갈라지는 거대한 짐승. 나타나면 지도가 바뀐다는 재앙급 마물.'},
  {k:'hydra',n:'히드라',g:'S',h:'안개 낀 늪',d:'머리가 여럿 달린 뱀용. 머리를 베어도 다시 자라난다.'},
+ {k:'imp',n:'임프',g:'D',h:'마족령',d:'박쥐 날개를 단 작은 악마. 쇠스랑을 들고 날아다니며 장난처럼 불을 지른다.'},
+ {k:'hellhound',n:'헬하운드',g:'C',h:'마족령',d:'불꽃 털을 두른 검은 마견. 무리 지어 사냥감을 몰고 불을 뿜는다.'},
+ {k:'gargoyle',n:'가고일',g:'B',h:'마족령 성채',d:'성벽 위 석상인 척 숨어 있다가 살아 움직이는 돌 악마. 웬만한 칼날은 튕겨 낸다.'},
+ {k:'nightmare',n:'나이트메어',g:'A',h:'마족령',d:'불타는 갈기와 발굽을 가진 흑마. 지나간 자리에 악몽 같은 불길이 남는다.'},
+ {k:'archdemon',n:'아크데몬',g:'S',h:'마족령 심부',d:'거대한 뿔과 날개, 불타는 대검을 든 대악마. 마왕 휘하 최강의 마물.'},
 ];
 $('#mgrid').innerHTML=MONS.map(m=>`<button class="mon" data-k="${m.k}"><div class="ph"><img src="img/m_${m.k}.webp" alt="${m.n}" loading="lazy"></div><div class="tx"><h3>${m.n}<span class="gr" style="--g:${GC[m.g]}">${m.g}</span></h3><div class="hb">${m.h}</div><p>${m.d}</p></div></button>`).join('');
 $('#mgrid').querySelectorAll('.mon').forEach(b=>b.onclick=()=>{const m=MONS.find(x=>x.k===b.dataset.k);$('#pimg').src=`img/m_${m.k}.webp`;$('#pimg').alt=m.n;$('#pname').textContent=m.n+' · '+m.g;$('#pdesc').textContent=m.h+' — '+m.d;$('#pmap').style.display='none';pdlg.showModal();});
