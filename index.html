@@ -152,6 +152,10 @@ section{padding:100px clamp(16px,5vw,64px);max-width:1280px;margin:0 auto}
 .count{text-align:center;color:var(--mute);margin-top:20px;font-size:13px}
 
 /* webtoon */
+.toon{max-width:720px;margin:0 auto;box-shadow:0 20px 50px rgba(28,34,51,.18)}
+.toon .ep{background:var(--deep);color:#f4ecd8;text-align:center;font-family:"Noto Serif KR",serif;letter-spacing:.3em;font-size:13px;padding:12px}
+.toon img{width:100%;height:auto;display:block}
+@media(max-width:820px){#webtoon{padding-left:0;padding-right:0}.toon{box-shadow:none}}
 .soon{text-align:center;background:var(--card);border:1px solid var(--line);padding:56px 20px;color:var(--mute);position:relative}
 .soon::before{content:"";position:absolute;inset:6px;border:1px solid rgba(201,160,80,.22)}
 .soon b{display:block;font-family:"Noto Serif KR",serif;font-size:22px;color:var(--ink);margin-bottom:4px}
@@ -257,7 +261,7 @@ dialog::backdrop{background:rgba(20,22,30,.6);backdrop-filter:blur(4px)}
     <h2>웹툰</h2>
     <div class="orn"><span></span></div>
   </div>
-  <div class="soon"><b>준비 중</b>곧 공개됩니다.</div>
+  <div class="toon"><div class="ep">프롤로그</div><img src="img/toon_01.webp" alt="프롤로그 1" width="1000" height="6976"><img src="img/toon_02.webp" alt="프롤로그 2" width="1000" height="7119" loading="lazy"><img src="img/toon_03.webp" alt="프롤로그 3" width="1000" height="7055" loading="lazy"></div>
 </section>
 
 <dialog id="pdlg">
