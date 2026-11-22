@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>신이 보고 있다 (팝콘 들고) · 세계 기록</title>
 <meta name="description" content="여덟 종족이 사는 대륙과 그 위의 사람들. 신이 보고 있다 (팝콘 들고) 세계 기록.">
+<meta property="og:title" content="신이 보고 있다 (팝콘 들고)">
+<meta property="og:image" content="https://shu2738.github.io/god-is-watching/img/cover.webp">
+<link rel="icon" href="img/logo_s.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;900&display=swap" rel="stylesheet">
@@ -163,12 +166,16 @@ dialog::backdrop{background:#03050bd9;backdrop-filter:blur(4px)}
   .pin .lb{font-size:10px;padding:2px 7px}
   .pin .dot{width:8px;height:8px}
 }
+
+.brand img{height:42px;width:auto;display:block;filter:drop-shadow(0 2px 6px rgba(0,0,0,.55))}
+.hero h1.logo{background:none;color:inherit;text-shadow:none;margin:8px 0 0;line-height:0}
+.hero h1.logo img{width:min(780px,90vw);height:auto;filter:drop-shadow(0 8px 28px rgba(0,0,0,.6))}
 </style>
 </head>
 <body>
 
 <header id="hdr">
-  <div class="brand">신이 보고 있다<small>(팝콘 들고)</small></div>
+  <a class="brand" href="#"><img src="img/logo_s.webp" alt="신이 보고 있다 (팝콘 들고)"></a>
   <nav id="nav">
     <a href="#world">세계관</a>
     <a href="#map">대륙 지도</a>
@@ -182,8 +189,7 @@ dialog::backdrop{background:#03050bd9;backdrop-filter:blur(4px)}
   <div class="bg"></div>
   <div class="in">
     <div class="eyebrow">World Archive</div>
-    <h1>신이 보고 있다</h1>
-    <div class="sub">— 팝콘 들고 —</div>
+    <h1 class="logo"><img src="img/logo.webp" alt="신이 보고 있다 (팝콘 들고)"></h1>
     <p class="lead">세계수 아래 여덟 종족이 사는 대륙.<br>그 절반은 이미 마족령의 붉은 땅에 잠겼다.</p>
     <div class="btns">
       <a class="btn fill" href="#map">지도 보기</a>
